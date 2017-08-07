@@ -29,6 +29,10 @@ class HtmlElement
     private $textContent = '';
 
     /**
+     * @var array
+     */
+    private $children = [];
+    /**
      * htmlElement constructor.
      * @param string $tagName
      * @param bool $autoClosed
@@ -52,7 +56,7 @@ class HtmlElement
 
         if (!$this->isAutoClosed()) {
             // texte entre les balises d'ouverture et de fermeture
-            $html .= $this->textContent;
+            $html .= $this->textContent . '<br>' . $this->getChildrenContent();
 
             // Fermeture de la balise
             $html .= "</{$this->tagName}>";
@@ -61,6 +65,52 @@ class HtmlElement
         return $html;
     }
 
+    /**
+     * @return string
+     */
+    private function getChildrenContent():string {
+        $content = '';
+
+        foreach ($this->children as $child) {
+            $content .= $child;
+        }
+
+        return $content;
+    }
+
+    /**
+     * @param string $name
+     * @param string $value
+     * @return HtmlElement
+     */
+    public function addAttribute(string $name, string $value = ''):HtmlElement {
+        if($this->hasAttribute($name)) {
+            $this->attributes[$name] = $value;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param string $name
+     * @return HtmlElement
+     */
+    public function removeAttribute(string $name): HtmlElement {
+        unset($this->attributes[$name]);
+        return $this;
+    }
+
+    /**
+     * @param string $name
+     * @return bool
+     */
+    public function hasAttribute(string $name): bool {
+        return isset($this->attributes[$name]);
+    }
+
+    /**
+     * @return string
+     */
     function __toString()
     {
         return $this->getHtml();
@@ -156,5 +206,28 @@ class HtmlElement
         return $this;
     }
 
+    public function addChild(HtmlElement $child):HtmlElement {
+        $this->children[] =  $child;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getChildren(): array
+    {
+        return $this->children;
+    }
+
+    /**
+     * @param array $children
+     * @return HtmlElement
+     */
+    public function setChildren(array $children): HtmlElement
+    {
+        $this->children = $children;
+        return $this;
+    }
 
 }
