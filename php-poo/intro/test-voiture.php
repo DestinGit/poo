@@ -18,7 +18,7 @@ try {
     ->ajouterPassager(new Personne("Totoro", 450));
 
     echo $maVoiture;
-    
+
 
 } catch (Exception $ex){
     echo $ex->getMessage();
