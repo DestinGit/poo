@@ -10,15 +10,22 @@ $pdo = new PDO(
 
 try {
     // DTO auteur
-    $auteur = new Auteur('Auster', 'Paul');
-    // Instanciation du DAO
-    $dao = new AuteurDAO($pdo);
+//    $auteur = new Auteur('Auster', 'Paul');
+//    // Instanciation du DAO
+//    $dao = new AuteurDAO($pdo);
+//
+//    // Persistance de l'auteur
+//    $dao->save($auteur);
+//    echo '<pre>';
+//    var_dump($auteur);
+//    echo '</pre>';
 
-    // Persistance de l'auteur
-    $dao->save($auteur);
+        // Instanciation du DAO
+        $dao = new AuteurDAO($pdo);
+    $ret = $dao->findOneById(20);
 
     echo '<pre>';
-        var_dump($auteur);
+        var_dump($ret->getOneAsObject());
     echo '</pre>';
 }catch (PDOException $ex) {
     echo $ex->getMessage();

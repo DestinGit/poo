@@ -1,13 +1,18 @@
 <?php
 
-class AuteurDAO implements IPersistable
+class AuteurDAO implements IPersistable, Ifindable
 {
 
     const TABLE_NAME = 'auteurs';
+
     /**
      * @var PDO
      */
     private $pdo;
+    /**
+     * @var PDOStatement
+     */
+    private $selectStatement;
 
     /**
      * AuteurDAO constructor.
@@ -71,4 +76,36 @@ class AuteurDAO implements IPersistable
 
     }
 
+    public function findOneById(int $id)
+    {
+        $sql = "SELECT * FROM " . self::TABLE_NAME . " WHERE id = ?";
+
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([$id]);
+
+        $this->selectStatement = $statement;
+        return $this;
+
+//        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getOneAsObject() {
+        $this->selectStatement->setFetchMode(PDO::FETCH_CLASS, Auteur::class);
+        return $this->selectStatement->fetch();
+    }
+
+    public function getOneAsArray() {
+        return $this->selectStatement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function findAll()
+    {
+        $sql = "SELECT * FROM " . self::TABLE_NAME;
+
+        $statement = $this->pdo->prepare($sql);
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

@@ -12,16 +12,16 @@ class Auteur
     private $nom;
     private $prenom;
 
-    /**
-     * Auteur constructor.
-     * @param $nom
-     * @param $prenom
-     */
-    public function __construct($nom, $prenom)
-    {
-        $this->nom = $nom;
-        $this->prenom = $prenom;
-    }
+//    /**
+//     * Auteur constructor.
+//     * @param $nom
+//     * @param $prenom
+//     */
+//    public function __construct($nom, $prenom)
+//    {
+//        $this->nom = $nom;
+//        $this->prenom = $prenom;
+//    }
 
     /**
      * @return mixed
