@@ -1,6 +1,5 @@
 <?php
-require 'classes/htmlElement.php';
-require 'classes/inputElement.php';
+require 'autoloader.php';
 
 $titre = new HtmlElement('h1', ['style'=>'color:red;font-size:5.6rem'], 'Bonjour');
 
@@ -17,3 +16,14 @@ $form->addChild(new InputElement('text', 'firstName', 'Albert'))
     ->addChild(new HtmlElement('button', ['type'=>'submit'], 'Valider'));
 
 echo $form;
+
+$glob = new GlobIterator(__DIR__ . '/classes/*.php');
+
+$fileNumber = $glob->count();
+$fileIndex = 0;
+
+while ($fileIndex < $fileNumber) {
+    echo $glob->current()->getFileName() . '<br>';
+    $glob->next();
+  $fileIndex++;
+}
