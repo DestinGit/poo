@@ -20,7 +20,7 @@ class ConnexionPDO
     {
     }
 
-    function __clone(){}
+    private function __clone(){}
 
     public static function getInstance() {
         if (!isset(self::$instance)) {
