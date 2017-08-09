@@ -1,0 +1,16 @@
+{
+    "name": "formation/poo",
+    "type": "project",
+    "minimum-stability": "stable",
+    "require": {},
+
+    "autoload": {
+        "psr-4": {
+            "POO\\": "classes/",
+            "POO\\DAO\\": "classes/DAO/"
+        }
+    },
+    "require-dev": {
+        "phpmd/phpmd": "^2.6"
+    }
+}
