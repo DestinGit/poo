@@ -31,5 +31,9 @@ modifier le fichier composer.json comme suit :
 
 $ composer dump-autoload
 
+Voir le site de phpmd pour la doc
 Installation:
 $ composer require --dev phpmd/phpmd
+
+utilisation de phpmd
+$ vendor/bin/phpmd classes html cleancode,codesize,naming > phpmd-report.html

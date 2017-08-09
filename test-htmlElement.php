@@ -1,5 +1,8 @@
 <?php
-require 'autoloader.php';
+//require 'autoloader.php';
+require 'vendor/autoload.php';
+use POO\HtmlElement;
+use POO\InputElement;
 
 $titre = new HtmlElement('h1', ['style'=>'color:red;font-size:5.6rem'], 'Bonjour');
 
