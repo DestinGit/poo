@@ -1,0 +1,32 @@
+télécharger composer
+
+$ composer -v (pour voir la version et les différentes cmd)
+$ composer self-update (pour la mise à jour)
+// installation d'un outil d'analyse du code en global
+$ composer global require "squizlabs/php_codesniffer"
+
+
+Dans phpStorm, modif le :
+- setting->Languages&frameworks->php->code snifer
+- setting->Languages&frameworks->editor->inspections, cocher php code snifer validation
+
+Dans le terminal, aller dans le dossier de notre pojet
+ou dans le terminal de phpStorm
+$ composer init
+
+modifier le fichier composer.json comme suit :
+{
+    "name": "formation/poo",
+    "type": "project",
+    "minimum-stability": "stable",
+    "require": {},
+
+    "autoload": {
+        "psr-4": {
+            "POO\\": "classes/",
+            "POO\\DAO\\": "classes/DAO/"
+        }
+    }
+}
+
+$ composer dump-autoload
