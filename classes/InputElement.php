@@ -1,4 +1,5 @@
 <?php
+namespace POO;
 
 class InputElement extends HtmlElement
 {

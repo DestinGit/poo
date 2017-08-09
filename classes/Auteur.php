@@ -1,4 +1,5 @@
 <?php
+namespace POO;
 
 /**
  * Created by PhpStorm.
@@ -8,8 +9,17 @@
  */
 class Auteur
 {
+    /**
+     * @var int
+     */
     private $id;
+    /**
+     * @var string
+     */
     private $nom;
+    /**
+     * @var
+     */
     private $prenom;
 
 //    /**

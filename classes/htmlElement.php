@@ -1,5 +1,5 @@
 <?php
-
+namespace POO;
 /**
  * Created by PhpStorm.
  * User: formation

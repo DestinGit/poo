@@ -1,4 +1,5 @@
 <?php
+namespace POO\DAO;
 
 class AuteurDAO implements IPersistable, Ifindable
 {

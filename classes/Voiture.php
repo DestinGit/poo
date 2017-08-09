@@ -1,4 +1,8 @@
 <?php
+namespace POO;
+
+use POO\Moteur;
+use  POO\Personne;
 
 /**
  * Created by PhpStorm.
@@ -226,96 +230,6 @@ class Voiture
     {
         // TODO: Implement __toString() method.
         return "{$this->marque} {$this->modele} roule à {$this->getVitesseMax()} km/h";
-    }
-
-}
-
-/**
- * Class Moteur
- */
-class Moteur {
-    /**
-     * @var int
-     */
-    private $puissance;
-
-    public function __construct(int $puissance)
-    {
-            $this->puissance = $puissance;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPuissance()
-    {
-        return $this->puissance;
-    }
-
-    /**
-     * @param int $puissance
-     */
-    public function setPuissance($puissance)
-    {
-        $this->puissance = $puissance;
-    }
-}
-
-
-/**
- * Class Personne
- */
-class Personne {
-    /**
-     * @var string
-     */
-    private $nom;
-    /**
-     * @var int
-     */
-    private $poids;
-
-    /**
-     * Personne constructor.
-     * @param string $nom
-     * @param int $poids
-     */
-    public function __construct(string $nom, int $poids)
-    {
-        $this->nom;
-        $this->poids;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * @param mixed $nom
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPoids()
-    {
-        return $this->poids;
-    }
-
-    /**
-     * @param mixed $poids
-     */
-    public function setPoids($poids)
-    {
-        $this->poids = $poids;
     }
 
 }

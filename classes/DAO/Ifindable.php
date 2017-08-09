@@ -1,5 +1,5 @@
 <?php
-
+namespace POO\DAO;
 /**
  * Created by PhpStorm.
  * User: formation

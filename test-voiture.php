@@ -1,5 +1,10 @@
 <?php
-require  'classes/Voiture.php';
+//require  'classes/Voiture.php';
+require 'vendor/autoload.php';
+
+use POO\Voiture;
+use POO\Moteur;
+use  POO\Personne;
 
 try {
     $maVoiture = new Voiture('Peugeot', '307', 4, 1200, 5, new Moteur(4e4));
