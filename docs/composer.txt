@@ -30,3 +30,6 @@ modifier le fichier composer.json comme suit :
 }
 
 $ composer dump-autoload
+
+Installation:
+$ composer require --dev phpmd/phpmd
