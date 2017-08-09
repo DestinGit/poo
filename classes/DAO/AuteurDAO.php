@@ -1,5 +1,6 @@
 <?php
 namespace POO\DAO;
+use POO\Auteur;
 
 class AuteurDAO implements IPersistable, Ifindable
 {
@@ -7,19 +8,19 @@ class AuteurDAO implements IPersistable, Ifindable
     const TABLE_NAME = 'auteurs';
 
     /**
-     * @var PDO
+     * @var \PDO
      */
     private $pdo;
     /**
-     * @var PDOStatement
+     * @var \PDOStatement
      */
     private $selectStatement;
 
     /**
      * AuteurDAO constructor.
-     * @param PDO $pdo
+     * @param \PDO $pdo
      */
-    public function __construct(PDO $pdo)
+    public function __construct(\PDO $pdo)
     {
         $this->pdo = $pdo;
     }
@@ -96,7 +97,7 @@ class AuteurDAO implements IPersistable, Ifindable
      * @return mixed
      */
     public function getOneAsObject() {
-        $this->selectStatement->setFetchMode(PDO::FETCH_CLASS, Auteur::class);
+        $this->selectStatement->setFetchMode(\PDO::FETCH_CLASS, Auteur::class);
         return $this->selectStatement->fetch();
     }
 
@@ -104,7 +105,7 @@ class AuteurDAO implements IPersistable, Ifindable
      * @return mixed
      */
     public function getOneAsArray() {
-        return $this->selectStatement->fetch(PDO::FETCH_ASSOC);
+        return $this->selectStatement->fetch(\PDO::FETCH_ASSOC);
     }
 
     /**
@@ -133,7 +134,7 @@ class AuteurDAO implements IPersistable, Ifindable
      * @return array
      */
     public function getAllAsObject() {
-        $this->selectStatement->setFetchMode(PDO::FETCH_CLASS, Auteur::class);
+        $this->selectStatement->setFetchMode(\PDO::FETCH_CLASS, Auteur::class);
         return $this->selectStatement->fetchAll();
     }
 
@@ -141,7 +142,7 @@ class AuteurDAO implements IPersistable, Ifindable
      * @return array
      */
     public function getAllAsArray() {
-        return $this->selectStatement->fetchAll(PDO::FETCH_ASSOC);
+        return $this->selectStatement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     /**
